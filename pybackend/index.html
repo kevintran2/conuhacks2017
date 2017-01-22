@@ -8,15 +8,16 @@
 </head>
 
 <script>
- word = "test" 
+ word = "test"
 $.ajax({
     type : "POST",
-    url : "http://127.0.0.1:5000/",
-    data: json.encode(word),
+    url : "http://127.0.0.1:5000/test",
+    dataType: 'json',
+    data: JSON.stringify({"data": word}),
     contentType: 'application/json;charset=UTF-8',
     success: function(result) {
-        console.log(result);
-				
+        console.log(result["noun"]["syn"][0]);
+
     }
 });
 
