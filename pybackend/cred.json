@@ -1,6 +1,6 @@
 {
     "sr_audio_file" : "http://jackymoon.co/test.wav",
-		"sr_engine": "NTE",
+		"sr_engine": "NREC",
 		"sr_engine_paramaters": {
 		"operation_mode": "accurate"
 			},
