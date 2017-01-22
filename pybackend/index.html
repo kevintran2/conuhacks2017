@@ -9,6 +9,8 @@
 
 <script>
  word = "test"
+ r1 = "2"
+ r2 = "8"
 $.ajax({
     type : "POST",
     url : "http://127.0.0.1:5000/test",
@@ -17,6 +19,28 @@ $.ajax({
     contentType: 'application/json;charset=UTF-8',
     success: function(result) {
         console.log(result["noun"]["syn"][0]);
+
+    }
+});
+$.ajax({
+    type : "POST",
+    url : "http://127.0.0.1:5000/wcount",
+    dataType: 'json',
+    data: JSON.stringify({"data": r1}),
+    contentType: 'application/json;charset=UTF-8',
+    success: function(result) {
+        console.log(result);
+
+    }
+});
+$.ajax({
+    type : "POST",
+    url : "http://127.0.0.1:5000/wordlist",
+    dataType: 'json',
+    data: JSON.stringify({"data": r2}),
+    contentType: 'application/json;charset=UTF-8',
+    success: function(result) {
+        console.log(result);
 
     }
 });

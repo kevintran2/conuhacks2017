@@ -42,6 +42,7 @@ words = text.split()
 
 # Count words
 counts = collections.Counter(words)
+print(counts)
 
 df = pandas.DataFrame.from_dict(counts, orient='index')
 # df.plot(kind='bar')
@@ -87,19 +88,18 @@ df = pandas.DataFrame.from_dict(counts, orient='index')
 #    pickle.dump(df_word, fp)
 
 # load saved word vectors
-with open ('word_vectors.p', 'rb') as fp:
-   df_word = pickle.load(fp)
+# open ('word_vectors.p', 'rb') as fp:
+ #  df_word = pickle.load(fp)
 
 #print(df_word)
 
 # Reduce the dimensions to only 2d (or 3d, change n_componenents)
 model_tsne = TSNE(n_components=2, random_state=1)
-dim_reduced = model_tsne.fit_transform(df_word)
+# dim_reduced = model_tsne.fit_transform(df_word)
 #print(dim_reduced)
 
 # Plot the dimension-reduced vectors in 2d
-plt.scatter(dim_reduced[:,0], dim_reduced[:,1])
-for label, x, y in zip(df_word.index, dim_reduced[:,0], dim_reduced[:, 1]):
-    plt.annotate(label, xy=(x, y), xytext=(0, 0), textcoords='offset points')
-plt.show()
-
+# .scatter(dim_reduced[:,0], dim_reduced[:,1])
+# for label, x, y in zip(df_word.index, dim_reduced[:,0], dim_reduced[:, 1]):
+#    plt.annotate(label, xy=(x, y), xytext=(0, 0), textcoords='offset points')
+# plt.show()
