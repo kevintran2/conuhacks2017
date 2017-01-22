@@ -50,12 +50,12 @@ function loadGraph(thebutton){
     var id = thebutton.id;
     $.ajax({
     type : "POST",
-    url : "http://127.0.0.1:5000/wordlist",
+    url : "http://127.0.0.1:5000/wcount",
     dataType: 'json',
     data: JSON.stringify({"data": id}),
     contentType: 'application/json;charset=UTF-8',
     success: function(result) {
-        json = result;
+       console.log(result); 
     }
     });
     var margin = {top: 20, right: 20, bottom: 70, left: 40},
@@ -88,9 +88,9 @@ var svg = d3.select("#graph").append("svg")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
-
+	json = "pybackend/wcount" + id + ".json";
 // load the data
-d3.json("wcount2.json", function(error, data) {
+d3.json(json, function(error, data) {
 
     data.forEach(function(d) {
         d.Letter = d.Letter;
