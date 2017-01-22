@@ -33,10 +33,15 @@ function loaddata(thebutton) {
         }
         console.log(result);
     }
+
+
     
 });
 thebutton.disabled = false;
+
 }
+
+
 
 function loadword(thebutton) {
     if(currentword !== null) {
