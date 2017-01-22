@@ -17,6 +17,10 @@
     font-size: 4rem;
 }
 
+.justbold {
+    font-weight: bold;
+}
+
 #firstrow {
     margin-bottom: 1%;
 }
