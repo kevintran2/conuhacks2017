@@ -4,10 +4,10 @@ import pandas
 import re
 
 ### splits returned string into words and computes metrics
-text = "Hello I'm going there. There going me,"
+raw = "Hello I'm going there. There going me,"
 
 # Remove punctuation except for apostrophe and make lowercase
-text = re.sub(r'[^\w\s\']', '', text)
+text = re.sub(r'[^\w\s\']', '', raw)
 words = text.lower().split()
 
 # Count words

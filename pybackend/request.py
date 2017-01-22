@@ -1,6 +1,9 @@
 import json
 import requests
-
+import collections
+from matplotlib import pyplot as plt
+import pandas
+import re
 
 body = open("cred.json")
 url = "https://nim-rd.nuance.mobi:9443/nina-webapi/DoSpeechRecognition"
@@ -12,3 +15,15 @@ r = requests.post(url, headers=headers, data = body)
 print(r.text)
 
 
+### splits returned string into words and computes metrics
+# Remove punctuation except for apostrophe and make lowercase
+# text = re.sub(r'[^\w\s\']', '', r.text)
+# words = text.lower().split()
+#
+# # Count words
+# counts = collections.Counter(words)
+#
+# df = pandas.DataFrame.from_dict(counts, orient='index')
+#
+# df.plot(kind='bar')
+# plt.show()
