@@ -1,0 +1,26 @@
+<html>
+<head>
+<title> Ajax call test </title>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+</head>
+
+<script>
+ word = "test" 
+$.ajax({
+    type : "POST",
+    url : "http://127.0.0.1:5000/",
+    data: json.encode(word),
+    contentType: 'application/json;charset=UTF-8',
+    success: function(result) {
+        console.log(result);
+				
+    }
+});
+
+
+</script>
+
+</html>
