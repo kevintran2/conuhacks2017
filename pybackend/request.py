@@ -1,6 +1,9 @@
 import json
 import requests
-
+import collections
+from matplotlib import pyplot as plt
+import pandas
+import re
 
 body = open("cred.json")
 body1 = open("cred1.json")
@@ -13,3 +16,17 @@ r = requests.post(url, headers=headers, data = body)
 r1 = requests.post(url, headers=headers, data = body1)
 print(r.text)
 print(r1.text)
+
+
+### splits returned string into words and computes metrics
+# Remove punctuation except for apostrophe and make lowercase
+# text = re.sub(r'[^\w\s\']', '', r.text)
+# words = text.lower().split()
+#
+# # Count words
+# counts = collections.Counter(words)
+#
+# df = pandas.DataFrame.from_dict(counts, orient='index')
+#
+# df.plot(kind='bar')
+# plt.show()
