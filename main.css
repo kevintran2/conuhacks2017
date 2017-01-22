@@ -1,7 +1,3 @@
-.btn-group-vertical {
-    width:100%;
-}
-
 .btn-secondary:disabled{
     background-color: #e6e6e6;
 }
@@ -31,4 +27,8 @@
 
 #firstrow {
     margin-bottom: 1%;
+}
+
+#recordbuttons {
+    width:100%;
 }
