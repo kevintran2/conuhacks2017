@@ -1,10 +1,13 @@
 import json
 import requests
+import codecs
 import collections
 from matplotlib import pyplot as plt
 import pandas
 import re
 import time
+import gensim
+
 
 # body = open("cred.json")
 # url = "https://nim-rd.nuance.mobi:9443/nina-webapi/DoSpeechRecognition"
@@ -28,7 +31,9 @@ import time
 # counts = collections.Counter(words)
 #
 # df = pandas.DataFrame.from_dict(counts, orient='index')
-#
+## df.plot(kind='bar')
+# plt.show()
+
 #
 # # Save everything
 # df.to_csv("WordCount_" + time.strftime("%d%m%y_%H%M") + ".csv")
@@ -36,10 +41,20 @@ import time
 #     text_file.write(raw)
 
 
-r = requests.get("http://words.bighugelabs.com/api/2/f2c786918d5b0a290582a98495f63a6d/night/json")
 
-test = json.load(r.content)
-print(test)
-#
-# df.plot(kind='bar')
-# plt.show()
+### Get synonyms for a word
+# https://words.bighugelabs.com/api.php
+def get_synonyms(word):
+    r = requests.get("http://words.bighugelabs.com/api/2/f2c786918d5b0a290582a98495f63a6d/" + word + "/json")
+    #print(r.json())
+    return r.json()
+
+#get_synonyms("small")
+
+
+### Use word2vec to get 'thought vectors' for words
+# load the Google's pre-trained model
+model = gensim.models.Word2Vec.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True)
+
+print(model['computer'])
+
