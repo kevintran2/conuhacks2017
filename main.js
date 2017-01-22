@@ -13,8 +13,8 @@ function loaddata(thebutton) {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText;
-            for(var i = 0; i < 10; i++) {
-                document.getElementById("record" + i).innerHTML = response[i];
+            for(var i = 0; i < 25; i++) {
+                document.getElementById("word" + i).innerHTML = response[i];
             }
         }
     };
@@ -30,14 +30,21 @@ function loadword(thebutton) {
 
     currentword = thebutton;
     thebutton.disabled = true;
+    
+    document.getElementById("adjective").innerHTML = "";
+    document.getElementById("adverb").innerHTML = "";
+    document.getElementById("noun").innerHTML = "";
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var response = this.responseText;
-            for(var i = 0; i < 25; i++) {
-                document.getElementById("word" + i).innerHTML = response[i];
-            }
+            for(var i = 0; i < response[adjective].length; i++)
+                document.getElementById("adjective").innerHTML += response[adjective];
+            for(var i = 0; i < response[adverb].length; i++)
+                document.getElementById("adverb").innerHTML += response[adverb];
+            for(var i = 0; i < response[noun].length; i++)
+                document.getElementById("noun").innerHTML += response[noun];
         }
     };
     xhttp.open("POST", "click.py", true);
