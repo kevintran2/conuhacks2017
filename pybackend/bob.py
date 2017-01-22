@@ -65,7 +65,10 @@ def get_synonyms(word):
     return r.json()
 
 def getraw(a):
-    return options[a-1]
+    with open('text.json') as data_file:
+        data = json.load(data_file)
+        print(data['test'][0]['0'])
+    return data['test'][0][str(int(a)-1)]
 
 
 

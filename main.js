@@ -10,7 +10,7 @@ function loaddata(thebutton) {
     var id = thebutton.id;
     
     thebutton.disabled = true;
-    
+
     $.ajax({
     type : "POST",
     url : "http://127.0.0.1:5000/wordlist",
@@ -19,7 +19,7 @@ function loaddata(thebutton) {
     contentType: 'application/json;charset=UTF-8',
     success: function(result) {
         var parent = document.querySelector(".row > .card > .card-block");
-        
+
         // Clear the words
         while (parent.hasChildNodes()) {
              parent.removeChild(parent.lastChild);
@@ -34,8 +34,6 @@ function loaddata(thebutton) {
         console.log(result);
     }
 
-
-    
 });
 thebutton.disabled = false;
 

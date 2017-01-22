@@ -41,7 +41,7 @@ text = text.lower()
 words = text.split()
 
 # Count words
-counts = collections.Counter(words)
+counts = collections.Counter( words)
 print(counts)
 
 df = pandas.DataFrame.from_dict(counts, orient='index')
