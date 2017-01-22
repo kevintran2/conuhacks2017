@@ -8,6 +8,7 @@ function loaddata(thebutton) {
 
     currentrecord = thebutton;
     var id = thebutton.id;
+    
     thebutton.disabled = true;
     
     $.ajax({
@@ -26,7 +27,7 @@ function loaddata(thebutton) {
         for(var i = 0; i < result.length; ++i){
             var child = document.createElement("button");
             child.innerHTML = result[i];
-            child.addEventListener("click", loadword(this));
+            child.addEventListener("click", function(){loadword(this);}, false);
             child.className = "btn btn-secondary muwords";
             parent.appendChild(child);
         }

@@ -29,6 +29,7 @@ options = {
 def synclick():
     posted = request.get_data()
     request_json = request.json
+    print(request_json)
     word = request_json['data']
     print(word)
     syns = get_synonyms(word)
