@@ -2,6 +2,10 @@
     width:100%;
 }
 
+.btn-secondary:disabled{
+    background-color: #e6e6e6;
+}
+
 .card {
     margin: 1%;
     margin-top: 0;
@@ -19,6 +23,10 @@
 
 .justbold {
     font-weight: bold;
+}
+
+.muwords {
+    margin-bottom: 0.75%;
 }
 
 #firstrow {
