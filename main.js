@@ -9,7 +9,7 @@ function loaddata(thebutton) {
     currentrecord = thebutton;
     var id = thebutton.id;
     thebutton.disabled = true;
-    
+
     $.ajax({
     type : "POST",
     url : "http://127.0.0.1:5000/wordlist",
@@ -18,7 +18,7 @@ function loaddata(thebutton) {
     contentType: 'application/json;charset=UTF-8',
     success: function(result) {
         var parent = document.querySelector(".row > .card > .card-block");
-        
+
         // Clear the words
         while (parent.hasChildNodes()) {
              parent.removeChild(parent.lastChild);
@@ -26,13 +26,13 @@ function loaddata(thebutton) {
         for(var i = 0; i < result.length; ++i){
             var child = document.createElement("button");
             child.innerHTML = result[i];
-            child.addEventListener("click", loadword(this));
+            child.addEventListener("click", function(){loadword(this);}, false);
             child.className = "btn btn-secondary muwords";
             parent.appendChild(child);
         }
         console.log(result);
     }
-    
+
 });
 thebutton.disabled = false;
 }
