@@ -4,6 +4,7 @@ import json
 import requests
 import codecs
 import collections
+import re
 
 from flask import Flask, url_for
 from flask import json, request
