@@ -66,10 +66,11 @@ df = pandas.DataFrame.from_dict(counts, orient='index')
 
 
 ### Use word2vec to get 'thought vectors' for words
-# load the Google's pre-trained model
+# load the Google's pre-trained model (too big for GitHub)
 # model = gensim.models.Word2Vec.load_word2vec_format('GoogleNews-vectors-negative300.bin', binary=True)
 # word_vectors = []
 # words = []
+## Get the word vectors for the words used in the text
 # for word in list(df.index):
 #     try:
 #         word_vectors.append(model[word])
@@ -85,17 +86,18 @@ df = pandas.DataFrame.from_dict(counts, orient='index')
 # with open('word_vectors.p', 'wb') as fp:
 #    pickle.dump(df_word, fp)
 
-
 # load saved word vectors
 with open ('word_vectors.p', 'rb') as fp:
    df_word = pickle.load(fp)
 
-print(df_word)
+#print(df_word)
 
+# Reduce the dimensions to only 2d (or 3d, change n_componenents)
 model_tsne = TSNE(n_components=2, random_state=1)
 dim_reduced = model_tsne.fit_transform(df_word)
-print(dim_reduced)
+#print(dim_reduced)
 
+# Plot the dimension-reduced vectors in 2d
 plt.scatter(dim_reduced[:,0], dim_reduced[:,1])
 for label, x, y in zip(df_word.index, dim_reduced[:,0], dim_reduced[:, 1]):
     plt.annotate(label, xy=(x, y), xytext=(0, 0), textcoords='offset points')
