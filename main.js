@@ -9,16 +9,18 @@ function loaddata(thebutton) {
     currentrecord = thebutton;
     thebutton.disabled = true;
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = this.responseText;
-            for(var i = 0; i < 25; i++) {
-                document.getElementById("word" + i).innerHTML = response[i];
-            }
-        }
-    };
-    xhttp.open("POST", "click.py", true);
+    $.ajax({
+    type : "POST",
+    url : "http://127.0.0.1:5000/test",
+    dataType: 'json',
+    data: JSON.stringify({"data": word}),
+    contentType: 'application/json;charset=UTF-8',
+    success: function(result) {
+        console.log(result["noun"]["syn"][0]);
+
+    }
+});
+    xhttp.open("POST", "http://127.0.0.1:5000/test", true);
     xhttp.setRequestHeader("string", thebutton.innerHTML);
     xhttp.send();
 }
@@ -30,24 +32,42 @@ function loadword(thebutton) {
 
     currentword = thebutton;
     thebutton.disabled = true;
-    
+
     document.getElementById("adjective").innerHTML = "";
     document.getElementById("adverb").innerHTML = "";
     document.getElementById("noun").innerHTML = "";
+    document.getElementById("verb").innerHTML = "";
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = this.responseText;
-            for(var i = 0; i < response[adjective].length; i++)
-                document.getElementById("adjective").innerHTML += response[adjective];
-            for(var i = 0; i < response[adverb].length; i++)
-                document.getElementById("adverb").innerHTML += response[adverb];
-            for(var i = 0; i < response[noun].length; i++)
-                document.getElementById("noun").innerHTML += response[noun];
+    $.ajax({
+        type : "POST",
+        url : "http://127.0.0.1:5000/test",
+        dataType: 'json',
+        data: JSON.stringify({"data": thebutton.innerHTML}),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(result) {
+            console.log(result);
+            if(result["adjective"] !== undefined && result["adjective"]["syn"] !== undefined) {
+                document.getElementById("adjective").innerHTML = result["adjective"]["syn"][0];
+                for(var i = 1; i < result["adjective"]["syn"].length; i++)
+                    document.getElementById("adjective").innerHTML += ", " + result["adjective"]["syn"][i];
+            }
+            if(result["adverb"] !== undefined && result["adverb"]["syn"] !== undefined) {
+                document.getElementById("adverb").innerHTML = result["adverb"]["syn"][0];
+                for(var i = 1; i < result["adverb"]["syn"].length; i++) {
+                    document.getElementById("adverb").innerHTML += ", " + result["adverb"]["syn"][i];
+                }
+            }
+            if(result["noun"] !== undefined && result["noun"]["syn"] !== undefined) {
+                document.getElementById("noun").innerHTML = result["noun"]["syn"][0];
+                for(var i = 1; i < result["noun"]["syn"].length; i++) {
+                    document.getElementById("noun").innerHTML += ", " + result["noun"]["syn"][i];
+                }
+            }
+            if(result["verb"] !== undefined && result["verb"]["syn"] !== undefined) {
+                document.getElementById("verb").innerHTML = result["verb"]["syn"][0];
+                for(var i = 1; i < result["verb"]["syn"].length; i++)
+                    document.getElementById("verb").innerHTML += ", " + result["verb"]["syn"][i];
+            }
         }
-    };
-    xhttp.open("POST", "click.py", true);
-    xhttp.setRequestHeader("word", thebutton.innerHTML);
-    xhttp.send();
+    });
 }
