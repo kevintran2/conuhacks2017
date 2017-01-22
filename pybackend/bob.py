@@ -4,17 +4,7 @@ import json
 import requests
 import codecs
 import collections
-
-import codecs
-import collections
-from matplotlib import pyplot as plt
-from sklearn.manifold import TSNE
-import pandas
 import re
-import time
-import gensim
-import pickle
-import crypt
 
 from flask import Flask, url_for
 from flask import json, request

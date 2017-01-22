@@ -7,22 +7,34 @@ function loaddata(thebutton) {
     }
 
     currentrecord = thebutton;
+    var id = thebutton.id;
     thebutton.disabled = true;
-
+    
     $.ajax({
     type : "POST",
-    url : "http://127.0.0.1:5000/test",
+    url : "http://127.0.0.1:5000/wordlist",
     dataType: 'json',
-    data: JSON.stringify({"data": word}),
+    data: JSON.stringify({"data": id}),
     contentType: 'application/json;charset=UTF-8',
     success: function(result) {
-        console.log(result["noun"]["syn"][0]);
-
+        var parent = document.querySelector(".row > .card > .card-block");
+        
+        // Clear the words
+        while (parent.hasChildNodes()) {
+             parent.removeChild(parent.lastChild);
+        }
+        for(var i = 0; i < result.length; ++i){
+            var child = document.createElement("button");
+            child.innerHTML = result[i];
+            child.addEventListener("click", loadword(this));
+            child.className = "btn btn-secondary muwords";
+            parent.appendChild(child);
+        }
+        console.log(result);
     }
+    
 });
-    xhttp.open("POST", "http://127.0.0.1:5000/test", true);
-    xhttp.setRequestHeader("string", thebutton.innerHTML);
-    xhttp.send();
+thebutton.disabled = false;
 }
 
 function loadword(thebutton) {

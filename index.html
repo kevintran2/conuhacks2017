@@ -4,6 +4,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -13,6 +18,7 @@
       .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; }
   </style>
   <body>
+ 
     <div class="container">
 
       <div class="jumbotron">
@@ -22,16 +28,16 @@
       <div class = "row" id = "firstrow">
         <div class = "col-lg-3">
           <div class = "btn-group-vertical" role = "group">
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record1">2017-01-09 20:34:32</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record2">2017-01-07 21:45:59</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record3">2017-01-05 23:51:26</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record4">2017-01-04 16:22:37</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record5">2017-01-03 17:34:45</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record6">2017-01-01 18:55:18</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record7">2017-12-29 22:13:16</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record8">2017-12-25 21:35:23</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record9">2017-12-18 19:22:54</button>
-            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "record10">2016-12-15 20:40:43</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "1">2017-01-09 20:34:32</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "2">2017-01-07 21:45:59</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "3">2017-01-05 23:51:26</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "4">2017-01-04 16:22:37</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "5">2017-01-03 17:34:45</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "6">2017-01-01 18:55:18</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "7">2017-12-29 22:13:16</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "8">2017-12-25 21:35:23</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "9">2017-12-18 19:22:54</button>
+            <button class = "btn btn-secondary btn-block" onclick="loaddata(this)" id = "10">2016-12-15 20:40:43</button>
           </div>
         </div>
 
@@ -209,7 +215,7 @@
 
             <div class = "row">
               <div class="card">
-                <div class="card-header">Most Used Words:</div>
+                <div class="card-header">Words:</div>
                 <div class="card-block">
                   <button class = "btn btn-secondary muwords" onclick = "loadword(this)" id = "word1">Apple</button>
                   <button class = "btn btn-secondary muwords" onclick = "loadword(this)" id = "word2">Banana</button>
