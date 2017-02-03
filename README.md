@@ -7,3 +7,7 @@ At the end of the day, his speech will be broken into sentences (we could parse 
 
 Additionally, the user could then review the words that were incorrectly recorded and have it added as a wrong word.
 Stats could be shown for wrong or right words so the user could compare and view his stats.
+
+Run by opening index.html in a web browser and running this command:
+python bob.py
+while in the pybackend folder
